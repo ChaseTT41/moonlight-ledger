@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="月光女团 · 陪玩团记账管理系统，支持录单、预存、分成、人员管理、统计排名、报表导出。">
+<title>月光女团 · 记账管理系统</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<div class="app" id="app">
+  <!-- 顶部栏 -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">🌙</div>
+      <div class="brand-text">
+        <h1 id="teamName">月光女团</h1>
+        <p id="teamSlogan">月色温柔，陪伴长久</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="sync-status" id="syncStatus" title="云端同步状态">
+        <span class="dot"></span><span class="txt">连接中</span>
+      </div>
+      <button class="btn-ghost" id="btnSettings" onclick="App.openSettings()">⚙️ 设置</button>
+    </div>
+  </header>
+
+  <!-- 主体 -->
+  <div class="layout">
+    <!-- 侧边导航 -->
+    <nav class="sidebar" id="sidebar">
+      <div class="nav-item" data-page="dashboard"><span class="ic">📊</span><span>总览</span></div>
+      <div class="nav-item" data-page="orders"><span class="ic">📝</span><span>录单 / 订单</span></div>
+      <div class="nav-item" data-page="deposits"><span class="ic">💰</span><span>预存管理</span></div>
+      <div class="nav-item" data-page="members"><span class="ic">👥</span><span>人员管理</span></div>
+      <div class="nav-item" data-page="projects"><span class="ic">🎮</span><span>项目与单价</span></div>
+      <div class="nav-item" data-page="packages"><span class="ic">🎁</span><span>预存套餐</span></div>
+      <div class="nav-item" data-page="ranking"><span class="ic">🏆</span><span>统计排名</span></div>
+      <div class="nav-item" data-page="reports"><span class="ic">📄</span><span>报表导出</span></div>
+      <div class="sidebar-foot">
+        <div class="role-badge" id="roleBadge">👑 团长</div>
+        <div class="share-hint">邀请朋友一起用 →</div>
+        <button class="btn-share" onclick="App.openShare()">📋 复制共享链接</button>
+      </div>
+    </nav>
+
+    <!-- 内容区 -->
+    <main class="content" id="content">
+      <!-- 由 JS 渲染 -->
+    </main>
+  </div>
+</div>
+
+<!-- 弹层容器 -->
+<div class="modal-root" id="modalRoot"></div>
+<div class="toast" id="toast"></div>
+
+<!-- 首次配置引导 -->
+<div class="onboard" id="onboard" style="display:none">
+  <div class="onboard-card">
+    <div class="onboard-icon">🌙</div>
+    <h2>连接月光女团账本</h2>
+    <p>这是一个多人共享账本。请选择你的身份连接方式：</p>
+    <div class="onboard-tabs">
+      <button class="onboard-tab on" data-role="viewer">👀 我是陪玩/朋友（只读）</button>
+      <button class="onboard-tab" data-role="owner">👑 我是团长（管理）</button>
+    </div>
+    <div id="onboardViewer">
+      <p class="hint">直接查看共享账本，无需任何配置。你只能看订单和排名，不能修改数据。</p>
+      <button class="btn-primary full" onclick="App.enterAsViewer()">进入账本查看 →</button>
+    </div>
+    <div id="onboardOwner" style="display:none">
+      <p class="hint">团长需要填入 GitHub 个人访问令牌（只需 gist 权限）才能写入账本。令牌只保存在你的浏览器本地。</p>
+      <input type="password" id="tokenInput" placeholder="粘贴 GitHub token (ghp_...)" autocomplete="off">
+      <a href="https://github.com/settings/tokens/new?scopes=gist&description=moonlight-ledger" target="_blank" class="token-link">← 点这里创建 token（勾选 gist 权限）</a>
+      <button class="btn-primary full" onclick="App.enterAsOwner()">进入管理后台 →</button>
+    </div>
+    <p class="onboard-foot">账本数据存于 GitHub Gist，团长一人写入、多人只读同步</p>
+  </div>
+</div>
+
+<script src="vendor/jspdf.umd.min.js"></script>
+<script src="vendor/html2canvas.min.js"></script>
+<script src="js/store.js"></script>
+<script src="js/cloud.js"></script>
+<script src="js/calc.js"></script>
+<script src="js/views.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

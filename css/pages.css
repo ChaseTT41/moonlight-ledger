@@ -1,0 +1,83 @@
+/* ============================================================
+   pages.css — 各页面专属样式
+   ============================================================ */
+
+/* 总览 - 最近动态 */
+.recent-list{display:flex;flex-direction:column}
+.recent-item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.recent-item:last-child{border-bottom:none}
+.recent-ic{width:34px;height:34px;border-radius:10px;background:var(--pink-soft);
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+.recent-main{flex:1;min-width:0}
+.recent-main b{font-size:13px}
+.recent-main p{font-size:11.5px;color:var(--ink2);margin-top:2px}
+.recent-amt{font-weight:800;color:var(--green);font-size:13.5px}
+
+/* 分成说明条 */
+.split-note{background:linear-gradient(100deg,#F5EFFA,#FCEFF3);border:1px solid #EADFF2;
+  border-radius:12px;padding:13px 15px;font-size:12.5px;color:#7A6A85;margin-bottom:18px;
+  display:flex;align-items:center;gap:10px}
+.split-note b{color:var(--moon-deep)}
+
+/* 快速操作 */
+.quick-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.quick-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:16px;text-align:center;cursor:pointer;transition:.15s;box-shadow:var(--sh)}
+.quick-card:hover{transform:translateY(-2px);border-color:var(--moon);box-shadow:0 8px 20px rgba(139,111,168,.12)}
+.quick-card .ic{font-size:26px;margin-bottom:7px}
+.quick-card b{font-size:13px}
+.quick-card p{font-size:11px;color:var(--ink2);margin-top:3px}
+
+/* 项目卡片 */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.proj-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;
+  box-shadow:var(--sh);position:relative}
+.proj-card .cat{position:absolute;right:14px;top:14px;font-size:10px;color:var(--moon);
+  background:var(--moon-soft);padding:3px 8px;border-radius:6px;font-weight:700}
+.proj-card h4{font-size:15px;font-weight:800;margin-bottom:10px}
+.proj-card .price{font-size:22px;font-weight:900;color:var(--pink)}
+.proj-card .rate{font-size:11.5px;color:var(--ink2);margin-top:5px}
+.proj-card .rate b{color:var(--green)}
+.proj-card .actions{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+
+/* 套餐卡片 */
+.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pkg-card{background:linear-gradient(135deg,#FFF9F0,#FFF3E4);border:1.5px solid #F0E2CE;
+  border-radius:15px;padding:18px;text-align:center;position:relative;box-shadow:var(--sh)}
+.pkg-card .name{font-size:14px;font-weight:800;color:#9A7A4A}
+.pkg-card .amt{font-size:28px;font-weight:900;color:var(--gold);margin:8px 0 2px}
+.pkg-card .bonus{font-size:12px;color:var(--green);font-weight:700}
+.pkg-card .val{font-size:11px;color:var(--ink2);margin-top:8px}
+.pkg-card .actions{display:flex;gap:6px;justify-content:center;margin-top:12px}
+
+/* 人员卡片 */
+.member-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.member-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:16px;box-shadow:var(--sh)}
+.member-card .head{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+.member-card .ava{width:44px;height:44px;border-radius:50%;background:var(--moon-soft);
+  display:flex;align-items:center;justify-content:center;font-size:22px}
+.member-card .head b{font-size:14.5px}
+.member-card .info-row{display:flex;justify-content:space-between;font-size:12px;
+  padding:5px 0;border-bottom:1px dashed var(--line)}
+.member-card .info-row span{color:var(--ink2)}
+.member-card .info-row b{color:var(--ink)}
+.member-card .actions{display:flex;gap:7px;margin-top:12px}
+
+/* 排序切换 */
+.tabs{display:flex;gap:7px;margin-bottom:14px}
+.tab{padding:8px 16px;border:1.5px solid var(--line);border-radius:9px;background:#fff;
+  font-size:12.5px;font-weight:700;color:var(--ink2)}
+.tab.on{background:var(--moon);color:#fff;border-color:var(--moon)}
+
+/* 报表导出卡 */
+.report-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.report-card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:20px;box-shadow:var(--sh);display:flex;flex-direction:column}
+.report-card .ic{font-size:30px;margin-bottom:10px}
+.report-card h3{font-size:16px;font-weight:800;margin-bottom:5px}
+.report-card p{font-size:12.5px;color:var(--ink2);line-height:1.6;flex:1;margin-bottom:14px}
+.report-card .btn-primary{align-self:flex-start}
+
+/* 报表预览（隐藏的可截图区域） */
+.pdf-stage{position:fixed;left:-10000px;top:0;width:794px;background:#fff}
